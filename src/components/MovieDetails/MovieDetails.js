@@ -1,0 +1,32 @@
+//MovieDetails
+
+import { movieDataGet } from "components/common/Common";
+import { Outlet, useLocation, useParams, } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { H2, MovieDetailsS, MiniContainer, NavLinkStyledMini } from "style/ComponentsStyled";
+export const MovieDetails = () => {
+    const location = useLocation();
+    const backLinkHref = location.state?.from ?? "/";
+
+    const [info, setinfo] = useState(null)
+    const { movieId } = useParams();
+
+    useEffect(() => {
+        movieDataGet(movieId).then(e => setinfo(e.data));
+    }, [movieId])
+
+    return (<MovieDetailsS>
+        {info !== null && (<div>
+            <H2>{info.title}</H2>
+            <NavLinkStyledMini to={backLinkHref}>Back to search</NavLinkStyledMini>
+            <NavLinkStyledMini to={`/movies/${movieId}/cast`} state={{ from: location }} >Cast</NavLinkStyledMini>
+            <NavLinkStyledMini to={`/movies/${movieId}/reviews`} state={{ from: location }}>Reviews</NavLinkStyledMini>
+            <MiniContainer>
+                <img src={`https://image.tmdb.org/t/p/w500${info.poster_path}`} alt={info.title}></img>
+                <Outlet />
+            </MiniContainer>
+        </div>)}
+    </MovieDetailsS>)
+}
+
+export default MovieDetails;

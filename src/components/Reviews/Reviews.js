@@ -1,13 +1,14 @@
 //reviews in moviedetails
 
-import { Link, useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { reviewsDataGet } from "components/common/Common";
 import "style/style.css";
+import { RewiewStyled } from 'style/ComponentsStyled'
 
 export const Reviews = () => {
     const location = useLocation();
-    const backLinkHref = location.state?.from ?? "/";
+    location.state={from: location}
 
     const { movieId } = useParams();
 
@@ -18,9 +19,7 @@ export const Reviews = () => {
     }, [movieId]);
     if (!rewiew) return;
 
-    return (<div>
-        <Link to={backLinkHref} state={{ from: location }}>back</Link>
-
+    return (<RewiewStyled>
         {(!rewiew || rewiew.length === 0) && (<p>no reviews</p>)}
         {rewiew.map(({ author, content }) =>
             <li key={author}>
@@ -29,7 +28,7 @@ export const Reviews = () => {
             </li>
         )}
 
-    </div>)
+    </RewiewStyled>)
 }
 
 export default Reviews;

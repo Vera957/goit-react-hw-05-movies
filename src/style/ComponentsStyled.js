@@ -83,6 +83,9 @@ margin-bottom: 15px;
 export const MovieDetailsS = styled.div`
 display: grid;
 gap: 10px;
+img{margin-left: auto;
+    margin-right: auto;
+}
 `
 
 export const MiniContainer = styled.div`
@@ -100,4 +103,16 @@ margin-left: 10px;
 max-width: 50px;
 font-size: 20px;
 margin-bottom: 10px;
+&.active{
+    color: red;
+}
+`
+
+export const RewiewStyled = styled.div`
+padding: 15px;
+text-align: center;
+`
+
+export const LinkContainer = styled.div`
+text-align: center;
 `

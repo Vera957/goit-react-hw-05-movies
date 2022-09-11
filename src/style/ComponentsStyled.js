@@ -24,7 +24,9 @@ export const NavLinkStyled = styled(NavLink)`
 export const Container = styled.div`
 display: grid;
 padding: 10px;
-
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
 `
 export const H2 = styled.h2`
 text-align: center;

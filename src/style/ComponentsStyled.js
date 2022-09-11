@@ -14,6 +14,7 @@ export const NavLinkStyled = styled(NavLink)`
   padding: 5px;
   border: 1px solid black;
   color: black;
+  background: white;
 
   &.active{
     background: red;
@@ -22,11 +23,14 @@ export const NavLinkStyled = styled(NavLink)`
 `
 
 export const Container = styled.div`
-display: grid;
 padding: 10px;
-max-width: 1000px;
+max-width: 1200px;
 margin-left: auto;
 margin-right: auto;
+background: whitesmoke;
+min-height: 90vh;
+margin-top: 10px;
+
 `
 export const H2 = styled.h2`
 text-align: center;
@@ -35,7 +39,9 @@ text-align: center;
 export const Ul = styled.ul`
 list-style: none;
 display: grid;
-grid-template-columns: 1fr 1fr 1fr;
+@media screen and (min-width: 768px){
+    grid-template-columns: 1fr 1fr 1fr;
+}
 flex-wrap: wrap;
 gap: 10px;
 justify-content: center;
@@ -81,7 +87,10 @@ gap: 10px;
 
 export const MiniContainer = styled.div`
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr;
+@media screen and (min-width: 768px){
+    grid-template-columns: 1fr 1fr;
+}
 `
 
 export const NavLinkStyledMini = styled(NavLink)`

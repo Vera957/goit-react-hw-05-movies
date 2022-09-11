@@ -22,8 +22,8 @@ export const MovieDetails = () => {
             <NavLinkStyledMini to={`/movies/${movieId}/cast`} state={{ from: location }} >Cast</NavLinkStyledMini>
             <NavLinkStyledMini to={`/movies/${movieId}/reviews`} state={{ from: location }}>Reviews</NavLinkStyledMini>
             <MiniContainer>
-                <img src={`https://image.tmdb.org/t/p/w500${info.poster_path}`} alt={info.title}></img>
-                <Outlet />
+                <img src={`https://image.tmdb.org/t/p/w500${info.poster_path}`} alt={info.title} grid-area='img'></img>
+                <Outlet grid-area="outlet"/>
             </MiniContainer>
         </div>)}
     </MovieDetailsS>)

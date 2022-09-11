@@ -54,7 +54,7 @@ export const Movies = () => {
                 queryDataResponse.map(({ title, poster_path, release_date, id }) =>
                     <LinkStyled key={id}>
                         <Link to={`/movies/${id}`} key={id} state={{ from: location }} >
-                            <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} />
+                            <img src={`https://image.tmdb.org/t/p/w500${poster_path}`}  alt={title} />
                             <h3>{title}</h3>
                             <p>{release_date}</p>
                         </Link>
